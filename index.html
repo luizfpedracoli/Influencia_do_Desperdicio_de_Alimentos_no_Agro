@@ -13,4 +13,592 @@
 </html>!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-   
+   <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Desperdício de Alimentos e seus Impactos no Agronegócio</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+:root{
+    --verde:#2e7d32;
+    --verde-claro:#4caf50;
+    --amarelo:#ffc107;
+    --cinza:#f5f5f5;
+    --escuro:#1b1b1b;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#fff;
+    color:#333;
+}
+
+/* HEADER */
+
+header{
+    background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
+    url("https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1800&q=80");
+    background-size:cover;
+    background-position:center;
+    min-height:100vh;
+    color:white;
+}
+
+/* NAVBAR */
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 8%;
+    position:fixed;
+    width:100%;
+    top:0;
+    z-index:1000;
+    backdrop-filter: blur(12px);
+    background:rgba(0,0,0,0.4);
+}
+
+.logo{
+    font-size:1.5rem;
+    font-weight:700;
+}
+
+.logo span{
+    color:var(--amarelo);
+}
+
+.menu{
+    display:flex;
+    list-style:none;
+    gap:30px;
+}
+
+.menu a{
+    text-decoration:none;
+    color:white;
+    font-weight:500;
+    transition:.3s;
+}
+
+.menu a:hover{
+    color:var(--amarelo);
+}
+
+.hamburger{
+    display:none;
+    flex-direction:column;
+    cursor:pointer;
+}
+
+.hamburger span{
+    width:30px;
+    height:3px;
+    background:white;
+    margin:4px;
+    transition:.3s;
+}
+
+/* HERO */
+
+.hero{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    text-align:center;
+    min-height:100vh;
+    padding:20px;
+}
+
+.hero h1{
+    font-size:4rem;
+    max-width:900px;
+    margin-bottom:20px;
+}
+
+.hero p{
+    max-width:800px;
+    font-size:1.2rem;
+    margin-bottom:30px;
+}
+
+.btn{
+    padding:15px 35px;
+    background:var(--amarelo);
+    color:#000;
+    text-decoration:none;
+    border-radius:40px;
+    font-weight:700;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-5px);
+}
+
+/* SECTIONS */
+
+section{
+    padding:90px 10%;
+}
+
+.titulo{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.titulo h2{
+    font-size:2.5rem;
+    color:var(--verde);
+}
+
+.titulo p{
+    color:#666;
+}
+
+/* ESTATISTICAS */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+}
+
+.stat{
+    background:white;
+    padding:35px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.stat h3{
+    color:var(--verde);
+    font-size:2.5rem;
+}
+
+/* CARDS */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    transition:.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.card h3{
+    color:var(--verde);
+    margin-bottom:15px;
+}
+
+/* TIMELINE */
+
+.timeline{
+    position:relative;
+    max-width:900px;
+    margin:auto;
+}
+
+.timeline::after{
+    content:'';
+    position:absolute;
+    width:4px;
+    background:var(--verde);
+    top:0;
+    bottom:0;
+    left:50%;
+}
+
+.event{
+    width:50%;
+    padding:20px 40px;
+    position:relative;
+}
+
+.event:nth-child(odd){
+    left:0;
+}
+
+.event:nth-child(even){
+    left:50%;
+}
+
+.content{
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+/* GALERIA */
+
+.galeria{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:20px;
+}
+
+.galeria img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    border-radius:15px;
+}
+
+/* FORM */
+
+form{
+    max-width:700px;
+    margin:auto;
+}
+
+input, textarea{
+    width:100%;
+    padding:15px;
+    margin:10px 0;
+    border:1px solid #ddd;
+    border-radius:10px;
+}
+
+button{
+    background:var(--verde);
+    color:white;
+    border:none;
+    padding:15px 30px;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+/* FOOTER */
+
+footer{
+    background:#111;
+    color:white;
+    text-align:center;
+    padding:40px;
+}
+
+/* RESPONSIVO */
+
+@media(max-width:900px){
+
+.hero h1{
+    font-size:2.8rem;
+}
+
+.menu{
+    position:absolute;
+    right:0;
+    top:80px;
+    width:100%;
+    background:#111;
+    flex-direction:column;
+    align-items:center;
+    padding:20px;
+    display:none;
+}
+
+.menu.active{
+    display:flex;
+}
+
+.hamburger{
+    display:flex;
+}
+
+.timeline::after{
+    left:20px;
+}
+
+.event{
+    width:100%;
+    left:0 !important;
+    padding-left:60px;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<header>
+
+<nav>
+
+<div class="logo">
+AGRO<span>CONSCIENTE</span>
+</div>
+
+<ul class="menu">
+<li><a href="#inicio">Início</a></li>
+<li><a href="#impactos">Impactos</a></li>
+<li><a href="#causas">Causas</a></li>
+<li><a href="#solucoes">Soluções</a></li>
+<li><a href="#contato">Contato</a></li>
+</ul>
+
+<div class="hamburger">
+<span></span>
+<span></span>
+<span></span>
+</div>
+
+</nav>
+
+<div class="hero" id="inicio">
+<h1>O Impacto do Desperdício de Alimentos no Agronegócio</h1>
+
+<p>
+Milhões de toneladas de alimentos são desperdiçadas todos os anos,
+gerando prejuízos econômicos, sociais e ambientais. Entenda como
+esse problema afeta toda a cadeia produtiva do agronegócio.
+</p>
+
+<a href="#impactos" class="btn">Saiba Mais</a>
+
+</div>
+
+</header>
+
+<section>
+
+<div class="titulo">
+<h2>Dados Importantes</h2>
+<p>Indicadores sobre desperdício alimentar</p>
+</div>
+
+<div class="stats">
+
+<div class="stat">
+<h3>1,3 Bi</h3>
+<p>Toneladas de alimentos desperdiçadas por ano.</p>
+</div>
+
+<div class="stat">
+<h3>30%</h3>
+<p>Da produção mundial é perdida.</p>
+</div>
+
+<div class="stat">
+<h3>8%</h3>
+<p>Das emissões globais vêm do desperdício.</p>
+</div>
+
+<div class="stat">
+<h3>828 Mi</h3>
+<p>Pessoas enfrentam insegurança alimentar.</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="impactos" style="background:#f7f7f7">
+
+<div class="titulo">
+<h2>Impactos no Agronegócio</h2>
+<p>Consequências do desperdício para toda a cadeia produtiva.</p>
+</div>
+
+<div class="cards">
+
+<div class="card">
+<h3>Prejuízo Econômico</h3>
+<p>
+Os produtores perdem recursos investidos em plantio,
+irrigação, transporte e armazenamento.
+</p>
+</div>
+
+<div class="card">
+<h3>Impacto Ambiental</h3>
+<p>
+A produção desperdiçada consome água, solo e energia
+sem gerar benefício para a sociedade.
+</p>
+</div>
+
+<div class="card">
+<h3>Emissão de Gases</h3>
+<p>
+Alimentos descartados liberam metano durante sua decomposição.
+</p>
+</div>
+
+<div class="card">
+<h3>Desmatamento</h3>
+<p>
+Mais áreas agrícolas são abertas para compensar perdas produtivas.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="causas">
+
+<div class="titulo">
+<h2>Principais Causas</h2>
+</div>
+
+<div class="timeline">
+
+<div class="event">
+<div class="content">
+<h3>Produção</h3>
+<p>Perdas durante colheita e manejo inadequado.</p>
+</div>
+</div>
+
+<div class="event">
+<div class="content">
+<h3>Transporte</h3>
+<p>Problemas logísticos e infraestrutura precária.</p>
+</div>
+</div>
+
+<div class="event">
+<div class="content">
+<h3>Armazenamento</h3>
+<p>Condições inadequadas provocam deterioração.</p>
+</div>
+</div>
+
+<div class="event">
+<div class="content">
+<h3>Consumo</h3>
+<p>Compras excessivas e descarte doméstico.</p>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<section style="background:#f7f7f7">
+
+<div class="titulo">
+<h2>Galeria Temática</h2>
+</div>
+
+<div class="galeria">
+
+<img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=1200&q=80">
+
+<img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1200&q=80">
+
+<img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=80">
+
+</div>
+
+</section>
+
+<section id="solucoes">
+
+<div class="titulo">
+<h2>Soluções Sustentáveis</h2>
+</div>
+
+<div class="cards">
+
+<div class="card">
+<h3>Tecnologia Agrícola</h3>
+<p>Sensores e monitoramento reduzem perdas.</p>
+</div>
+
+<div class="card">
+<h3>Logística Inteligente</h3>
+<p>Melhoria no transporte e armazenamento.</p>
+</div>
+
+<div class="card">
+<h3>Educação Alimentar</h3>
+<p>Conscientização sobre consumo responsável.</p>
+</div>
+
+<div class="card">
+<h3>Economia Circular</h3>
+<p>Reaproveitamento de resíduos e subprodutos.</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="contato" style="background:#f7f7f7">
+
+<div class="titulo">
+<h2>Entre em Contato</h2>
+<p>Envie sugestões ou dúvidas.</p>
+</div>
+
+<form>
+
+<input type="text" placeholder="Seu Nome" required>
+
+<input type="email" placeholder="Seu E-mail" required>
+
+<textarea rows="6" placeholder="Sua Mensagem"></textarea>
+
+<button type="submit">Enviar Mensagem</button>
+
+</form>
+
+</section>
+
+<footer>
+
+<h3>AgroConsciente © 2026</h3>
+<p>
+Site educativo sobre os impactos do desperdício de alimentos
+no agronegócio e na sustentabilidade.
+</p>
+
+</footer>
+
+<script>
+
+const hamburger = document.querySelector('.hamburger');
+const menu = document.querySelector('.menu');
+
+hamburger.addEventListener('click', () => {
+    menu.classList.toggle('active');
+});
+
+document.querySelectorAll('.menu a').forEach(link=>{
+    link.addEventListener('click',()=>{
+        menu.classList.remove('active');
+    });
+});
+
+</script>
+
+</body>
+</html>
