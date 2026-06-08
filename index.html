@@ -85,6 +85,7 @@ nav{
     display:flex;
     list-style:none;
     gap:30px;
+    
 }
 
 .menu a{
@@ -347,6 +348,8 @@ footer{
 </head>
 <body>
 
+<div id="progress"></div>
+
 <header>
 
 <nav>
@@ -362,6 +365,8 @@ AGRO<span>CONSCIENTE</span>
 <li><a href="#solucoes">Soluções</a></li>
 <li><a href="#contato">Contato</a></li>
 </ul>
+
+<button id="theme-toggle">🌙</button>
 
 <div class="hamburger">
 <span></span>
@@ -396,8 +401,8 @@ esse problema afeta toda a cadeia produtiva do agronegócio.
 <div class="stats">
 
 <div class="stat">
-<h3>1,3 Bi</h3>
-<p>Toneladas de alimentos desperdiçadas por ano.</p>
+<h3 class="counter" data-target="1300">0</h3>
+<p> Milhões de Toneladas de alimentos desperdiçadas por ano.</p>
 </div>
 
 <div class="stat">
@@ -522,6 +527,23 @@ Mais áreas agrícolas são abertas para compensar perdas produtivas.
 
 <section id="solucoes">
 
+    <section id="calculadora">
+
+<div class="titulo">
+<h2>Calculadora de Impacto</h2>
+</div>
+
+<input id="kg" type="number"
+placeholder="Quantos kg você desperdiça por mês?">
+
+<button onclick="calcular()">
+Calcular Impacto
+</button>
+
+<h3 id="resultado"></h3>
+
+</section>
+
 <div class="titulo">
 <h2>Soluções Sustentáveis</h2>
 </div>
@@ -583,6 +605,12 @@ no agronegócio e na sustentabilidade.
 
 </footer>
 
+<a href="https://wa.me/43991576697"
+class="whatsapp"
+target="_blank">
+💬
+</a>
+
 <script>
 
 const hamburger = document.querySelector('.hamburger');
@@ -596,6 +624,83 @@ document.querySelectorAll('.menu a').forEach(link=>{
     link.addEventListener('click',()=>{
         menu.classList.remove('active');
     });
+});
+
+
+const toggle = document.getElementById("theme-toggle");
+
+toggle.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+
+    if(document.body.classList.contains("dark")){
+        toggle.innerHTML = "☀️";
+        localStorage.setItem("theme","dark");
+    }else{
+        toggle.innerHTML = "🌙";
+        localStorage.setItem("theme","light");
+    }
+});
+
+if(localStorage.getItem("theme")==="dark"){
+    document.body.classList.add("dark");
+    toggle.innerHTML="☀️";
+}
+
+function calcular(){
+
+    let kg = parseFloat(document.getElementById("kg").value);
+
+    if(!kg){
+        document.getElementById("resultado").innerHTML =
+        "Digite uma quantidade válida.";
+        return;
+    }
+
+    let anual = kg * 12;
+    let agua = anual * 1000;
+    let prejuizo = anual * 8;
+
+    document.getElementById("resultado").innerHTML = `
+        <p><strong>Desperdício anual:</strong> ${anual.toFixed(0)} kg</p>
+        <p><strong>Água utilizada:</strong> ${agua.toLocaleString()} litros</p>
+        <p><strong>Prejuízo estimado:</strong> R$ ${prejuizo.toFixed(2)}</p>
+    `;
+}
+
+const counters = document.querySelectorAll('.counter');
+
+counters.forEach(counter => {
+
+const update = () => {
+
+const target = +counter.getAttribute('data-target');
+const current = +counter.innerText;
+
+const increment = target / 100;
+
+if(current < target){
+counter.innerText =
+Math.ceil(current + increment);
+setTimeout(update,20);
+}else{
+counter.innerText = target;
+}
+};
+
+update();
+
+window.addEventListener("scroll", () => {
+
+    let winScroll = document.documentElement.scrollTop;
+
+    let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+
+    let scrolled = (winScroll / height) * 100;
+
+    document.getElementById("progress").style.width = scrolled + "%";
+
+});
+
 });
 
 </script>
